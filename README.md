@@ -189,3 +189,92 @@ GET /v1/properties/:propertyReference/
   ]
 }
 ```
+
+## Create a new repair
+
+Create a repair request, with or without a list of work orders
+
+```
+POST /v1/properties/:id/repairs
+```
+
+### Request
+
+```json
+{
+  "propertyReference": "00078345",
+  "problemDescription": "The fan is buzzing and sometimes not spinning at
+  all",
+  "priority": "N",
+  "contact": {
+    "name": "Al Smith",
+    "telephoneNumber": "07876543210",
+    "emailAddress": "al.smith@hotmail.com",
+    "callbackTime": "8am - 12pm"
+  },
+  "workOrders": [
+    {
+       "sorCode":  "20090190"
+    }
+  ]
+}
+```
+
+- propertyReference - A Hackney-specific code identifying the property
+- problemDescription - A free-text description of the problem which needs to
+  be fixed
+- priority - A single-character representation of the repair priority:
+  - N - Normal
+  - U - Urgent
+  - I - Immediate
+  - E - Emergency
+  - G -
+  - Z -
+  - V -
+- contact - The person who should be contacted in relation to the repair
+  - callbackTime (optional) - a time which this person has specified that they
+    are available to be called back. Don't pass this key at all if it is not
+    applicable
+- workOrders (optional) - A list of the repair jobs which need to happen to
+  fix the resident's problem. Don't pass this key at all if it is not
+  applicable
+  - sorCode - a "Schedule of Rates" code which describes the problem
+
+### Response
+
+A successful request should return HTTP 201 Created
+
+The response contains the data which was submitted, plus some additional IDs
+and data calculated based on the SOR code.
+
+```json
+{
+  "requestReference": "08912445",
+  "propertyReference": "00078345",
+  "problemDescription": "The fan is buzzing and sometimes not spinning at
+  all",
+  "priority": "N",
+  "contact": {
+    "name": "Al Smith",
+    "telephoneNumber": "07876543210",
+    "emailAddress": "al.smith@hotmail.com",
+    "callbackTime": "8am - 12pm"
+  },
+  "workOrders": [
+    {
+      "workOrderReference": "20090190",
+      "sorCode":  "20090190",
+      "supplierReference": "00000127"
+    }
+  ]
+}
+```
+
+- requestReference - an identifier for the repair request made by the resident
+- workOrderReference - an identifier for the work to be done by a contractor
+- supplierReference - an identifier for the organisation who will carry out
+  the work - e.g. the Hackney DLO
+
+If the repair was created without work orders, an empty array of workOrders
+should be returned (rather than no key or a null value)
+
