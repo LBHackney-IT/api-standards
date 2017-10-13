@@ -278,3 +278,47 @@ and data calculated based on the SOR code.
 If the repair was created without work orders, an empty array of workOrders
 should be returned (rather than no key or a null value)
 
+## Retrieve a repair by reference
+
+Retrieve a repair request, with or without a list of work orders
+
+```
+POST /v1/repairs/:repair_request_reference
+```
+
+### Parameters
+
+- Repair request reference (required)
+
+### Response
+
+The response contains the same data as when the repair was created:
+
+```json
+{
+"requestReference": "08912445",
+  "propertyReference": "00078345",
+  "problemDescription": "The fan is buzzing and sometimes not spinning at
+    all",
+  "priority": "N",
+  "contact": {
+    "name": "Al Smith",
+    "telephoneNumber": "07876543210",
+    "emailAddress": "al.smith@hotmail.com",
+    "callbackTime": "8am - 12pm"
+  },
+  "workOrders": [
+    {
+      "workOrderReference": "20090190",
+      "sorCode":  "20090190",
+      "supplierReference": "00000127"
+    }
+  ]
+}
+```
+
+As above: if the repair was created without work orders, an empty array of
+workOrders should be returned (rather than no key or a null value)
+
+
+
