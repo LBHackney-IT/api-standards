@@ -53,7 +53,22 @@ Successful requests should also have a 200 OK HTTP response in the case of GET r
 
 201 Created or 202 Accepted are more applicable to POST,PUT and PATCH requests.
 
-POST, PUT and PATCH requests should return the created or modified object in the response.
+### Response bodies for Create/Update
+
+POST, PUT and PATCH requests should return the full created or modified
+resource in the response. This response should be identical to the response
+returned by a request which fetches a single resource by ID.
+
+An advantage of this approach is that clients of the API can treat the
+response of creating a resource and showing that same resource in exactly the
+same way.
+
+This is the standard adopted by the
+[GitHub](https://developer.github.com/v3/issues/comments/#create-a-comment),
+[Stripe](https://stripe.com/docs/api#create_charge),
+and
+[Twilio](https://www.twilio.com/docs/api/rest/account#code-suspend-a-subaccount)
+APIs.
 
 ### List responses
 
