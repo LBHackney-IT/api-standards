@@ -11,15 +11,15 @@ with some specifics from the
 ## Data Properties
 
 - Property names should be in lower camel case
-  - Good: `"contactTelephoneNumber"`
-  - Good: `"priority"`
+  - Good: `contactTelephoneNumber`
+  - Good: `priority`
 
 - Property names should use the language that Hackney uses rather than language used by any back end system:
-  - Good: `"sorCode"`
-  - Bad: `"jobCode”`
+  - Good: `sorCode`
+  - Bad: `jobCode`
 - Property names should use full words, not abbreviations
-  - Good: `"propertyReference"`
-  - Bad: `"propertyRef”`
+  - Good: `propertyReference`
+  - Bad: `propertyRef`
 
 ## Data Formats
 
