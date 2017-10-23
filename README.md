@@ -243,9 +243,9 @@ POST /v1/properties/:id/repairs
   - U - Urgent
   - I - Immediate
   - E - Emergency
-  - G -
-  - Z -
-  - V -
+  - G - Gas Servicing
+  - Z - Voids Initiative
+  - V - 6 [V] Void Repairs
 - contact - The person who should be contacted in relation to the repair
   - callbackTime (optional) - a time which this person has specified that they
     are available to be called back. Don't pass this key at all if it is not
