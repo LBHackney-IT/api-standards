@@ -88,7 +88,7 @@ single item should return an array.
 
 ## Pagination
 
-Whee an endpoint returns many results, in order to prevent either the API
+When an endpoint returns many results, in order to prevent either the API
 server or client from getting overwhelmed, the results should not be returned
 in one go, instead being split between multiple pages.  You can request
 multiple pages of results by incrementing the offset, e.g.
