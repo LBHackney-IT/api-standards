@@ -158,7 +158,7 @@ GET /v1/properties/
 
 ### Response
 
-```
+```json
 {
   "metadata": {
     "resultset": {
@@ -169,8 +169,9 @@ GET /v1/properties/
   },
   "results": [
     {
-      //TBC
-      "postcode": "AB1 1AA"
+      "propertyReference": "00032896",
+      "postcode": "AB1 1AA",
+      "address": "Ross Court 2"
     },
     {
       ...etc...
@@ -194,14 +195,14 @@ GET /v1/properties/:propertyReference/
 
 ### Response
 
+This should mostly mirror the individual results from the List properties by
+ID endpoint.
+
 ```json
 {
-  "results": [
-    {
-      //TBC
-      "postcode": "AB1 1AA"
-    }
-  ]
+  "propertyReference": "00032896",
+  "postcode": "AB1 1AA",
+  "address": "Ross Court 2"
 }
 ```
 
@@ -334,6 +335,3 @@ The response contains the same data as when the repair was created:
 
 As above: if the repair was created without work orders, an empty array of
 workOrders should be returned (rather than no key or a null value)
-
-
-
