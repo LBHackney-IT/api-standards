@@ -335,3 +335,74 @@ The response contains the same data as when the repair was created:
 
 As above: if the repair was created without work orders, an empty array of
 workOrders should be returned (rather than no key or a null value)
+
+
+## Get Appointments for Work Order
+
+Returns a list of appointments matching the given criteria.
+
+```
+GET /v1/appointments/
+```
+
+### Parameters
+
+- workorderreference (required)
+
+### Response
+A successful response should create the Work order in DRS and get the list of appointments.
+
+```json
+{
+  "metadata": {
+    "resultset": {
+      "count": 5,
+      "offset": 0,
+      "limit": 10
+    },
+  },
+  "results": [
+	{
+	"day": "2017-10-18T00:00:00Z",
+	"daySpecified": true,
+	"nonWorkingDay": false,
+	"weeklyDayOff": false,
+	"slotsForDay": [
+	{
+	"available": "NO",
+	"beginDate": "2017-10-18T08:00:00Z",
+	"endDate": "2017-10-18T12:00:00Z",
+	"bestSlot": false
+	},
+	{
+	"available": "NO",
+	"beginDate": "2017-10-18T12:00:00Z",
+	"endDate": "2017-10-18T16:15:00Z",
+	"bestSlot": false
+	},
+	{
+	"available": "NO",
+	"beginDate": "2017-10-18T10:00:00Z",
+	"endDate": "2017-10-18T14:30:00Z",
+	"bestSlot": false
+	},
+	{
+	"available": "NO",
+	"beginDate": "2017-10-18T08:00:00Z",
+	"endDate": "2017-10-18T16:15:00Z",
+	"bestSlot": false
+	},
+	{
+	"available": "NO",
+	"beginDate": "2017-10-18T16:00:00Z",
+	"endDate": "2017-10-18T18:00:00Z",
+	"bestSlot": false
+	}
+	]
+	},
+    {
+      ...etc...
+    }
+  ]
+}
+```
