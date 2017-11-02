@@ -335,3 +335,62 @@ The response contains the same data as when the repair was created:
 
 As above: if the repair was created without work orders, an empty array of
 workOrders should be returned (rather than no key or a null value)
+
+
+## Get Appointments for Work Order
+
+Returns a list of available appointments for a work order 
+
+```
+GET /v1/work_orders/:workOrderReference/appointments/
+```
+
+### Parameters
+
+- Work order reference (required)
+
+### Response
+A successful response should create the Work order in DRS and get the list of available appointments.
+
+```json
+{
+  "metadata": {
+    "resultset": {
+      "count": 5,
+      "offset": 0,
+      "limit": 10
+    },
+  },
+  "results": [
+    {
+      "beginDate": "2017-10-18T08:00:00Z",
+      "endDate": "2017-10-18T12:00:00Z",
+      "bestSlot": true
+    },
+    {
+      "beginDate": "2017-10-18T12:00:00Z",
+      "endDate": "2017-10-18T16:15:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-19T10:00:00Z",
+      "endDate": "2017-10-19T14:30:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-20T08:00:00Z",
+      "endDate": "2017-10-20T16:15:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-20T16:00:00Z",
+      "endDate": "2017-10-20T18:00:00Z",
+      "bestSlot": false
+    },
+    {
+      ...etc...
+    }
+  ]
+}
+```
+
