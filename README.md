@@ -362,34 +362,34 @@ A successful response should create the Work order in DRS and get the list of av
     },
   },
   "results": [
-  {
-	  "beginDate": "2017-10-18T08:00:00Z",
-	  "endDate": "2017-10-18T12:00:00Z",
-	  "bestSlot": true
-	},
-	{
-	  "beginDate": "2017-10-18T12:00:00Z",
-	  "endDate": "2017-10-18T16:15:00Z",
-	  "bestSlot": false
-	},
-	{
-	  "beginDate": "2017-10-19T10:00:00Z",
-	  "endDate": "2017-10-19T14:30:00Z",
-	  "bestSlot": false
-	},
-	{
-	  "beginDate": "2017-10-20T08:00:00Z",
-	  "endDate": "2017-10-20T16:15:00Z",
-	  "bestSlot": false
-	},
-	{
-	  "beginDate": "2017-10-20T16:00:00Z",
-	  "endDate": "2017-10-20T18:00:00Z",
-	  "bestSlot": false
-	}
-	{
+    {
+      "beginDate": "2017-10-18T08:00:00Z",
+      "endDate": "2017-10-18T12:00:00Z",
+      "bestSlot": true
+    },
+    {
+      "beginDate": "2017-10-18T12:00:00Z",
+      "endDate": "2017-10-18T16:15:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-19T10:00:00Z",
+      "endDate": "2017-10-19T14:30:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-20T08:00:00Z",
+      "endDate": "2017-10-20T16:15:00Z",
+      "bestSlot": false
+    },
+    {
+      "beginDate": "2017-10-20T16:00:00Z",
+      "endDate": "2017-10-20T18:00:00Z",
+      "bestSlot": false
+    },
+    {
       ...etc...
-  }
+    }
   ]
 }
 ```
