@@ -339,18 +339,18 @@ workOrders should be returned (rather than no key or a null value)
 
 ## Get Appointments for Work Order
 
-Returns a list of appointments matching the given criteria.
+Returns a list of available appointments for a work order 
 
 ```
-GET /v1/appointments/
+GET /v1/workorders/:work_order_reference/appointments/
 ```
 
 ### Parameters
 
-- workorderreference (required)
+- Work order reference (required)
 
 ### Response
-A successful response should create the Work order in DRS and get the list of appointments.
+A successful response should create the Work order in DRS and get the list of available appointments.
 
 ```json
 {
@@ -362,47 +362,35 @@ A successful response should create the Work order in DRS and get the list of ap
     },
   },
   "results": [
-	{
-	"day": "2017-10-18T00:00:00Z",
-	"daySpecified": true,
-	"nonWorkingDay": false,
-	"weeklyDayOff": false,
-	"slotsForDay": [
-	{
-	"available": "NO",
-	"beginDate": "2017-10-18T08:00:00Z",
-	"endDate": "2017-10-18T12:00:00Z",
-	"bestSlot": false
-	},
-	{
-	"available": "NO",
-	"beginDate": "2017-10-18T12:00:00Z",
-	"endDate": "2017-10-18T16:15:00Z",
-	"bestSlot": false
-	},
-	{
-	"available": "NO",
-	"beginDate": "2017-10-18T10:00:00Z",
-	"endDate": "2017-10-18T14:30:00Z",
-	"bestSlot": false
-	},
-	{
-	"available": "NO",
-	"beginDate": "2017-10-18T08:00:00Z",
-	"endDate": "2017-10-18T16:15:00Z",
-	"bestSlot": false
-	},
-	{
-	"available": "NO",
-	"beginDate": "2017-10-18T16:00:00Z",
-	"endDate": "2017-10-18T18:00:00Z",
-	"bestSlot": false
-	}
-	]
-	},
     {
+	  "beginDate": "2017-10-18T08:00:00Z",
+	  "endDate": "2017-10-18T12:00:00Z",
+	  "bestSlot": true
+	},
+	{
+	  "beginDate": "2017-10-18T12:00:00Z",
+	  "endDate": "2017-10-18T16:15:00Z",
+	  "bestSlot": false
+	},
+	{
+	  "beginDate": "2017-10-19T10:00:00Z",
+	  "endDate": "2017-10-19T14:30:00Z",
+	  "bestSlot": false
+	},
+	{
+	  "beginDate": "2017-10-20T08:00:00Z",
+	  "endDate": "2017-10-20T16:15:00Z",
+	  "bestSlot": false
+	},
+	{
+	  "beginDate": "2017-10-20T16:00:00Z",
+	  "endDate": "2017-10-20T18:00:00Z",
+	  "bestSlot": false
+	}
+	{
       ...etc...
     }
   ]
 }
 ```
+
