@@ -342,7 +342,7 @@ workOrders should be returned (rather than no key or a null value)
 Returns a list of available appointments for a work order 
 
 ```
-GET /v1/workorders/:work_order_reference/appointments/
+GET /v1/work_orders/:workOrderReference/appointments/
 ```
 
 ### Parameters
@@ -362,7 +362,7 @@ A successful response should create the Work order in DRS and get the list of av
     },
   },
   "results": [
-    {
+  {
 	  "beginDate": "2017-10-18T08:00:00Z",
 	  "endDate": "2017-10-18T12:00:00Z",
 	  "bestSlot": true
@@ -389,7 +389,7 @@ A successful response should create the Work order in DRS and get the list of av
 	}
 	{
       ...etc...
-    }
+  }
   ]
 }
 ```
