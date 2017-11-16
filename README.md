@@ -211,7 +211,7 @@ ID endpoint.
 Create a repair request, with or without a list of work orders
 
 ```
-POST /v1/properties/:id/repairs
+POST /v1/repairs
 ```
 
 ### Request
