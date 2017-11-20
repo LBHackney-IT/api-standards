@@ -265,7 +265,7 @@ and data calculated based on the SOR code.
 
 ```json
 {
-  "requestReference": "08912445",
+  "reapirRequestReference": "08912445",
   "propertyReference": "00078345",
   "problemDescription": "The fan is buzzing and sometimes not spinning at
   all",
@@ -286,7 +286,7 @@ and data calculated based on the SOR code.
 }
 ```
 
-- requestReference - an identifier for the repair request made by the resident
+- reapirRequestReference - an identifier for the repair request made by the resident
 - workOrderReference - an identifier for the work to be done by a contractor
 - supplierReference - an identifier for the organisation who will carry out
   the work - e.g. the Hackney DLO
@@ -312,7 +312,7 @@ The response contains the same data as when the repair was created:
 
 ```json
 {
-"requestReference": "08912445",
+"reapirRequestReference": "08912445",
   "propertyReference": "00078345",
   "problemDescription": "The fan is buzzing and sometimes not spinning at
     all",
