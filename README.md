@@ -299,7 +299,7 @@ should be returned (rather than no key or a null value)
 Retrieve a repair request, with or without a list of work orders
 
 ```
-GET /v1/repairs/:repair_request_reference
+GET /v1/repairs/:repairRequestReference
 ```
 
 ### Parameters
