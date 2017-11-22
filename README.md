@@ -336,13 +336,63 @@ The response contains the same data as when the repair was created:
 As above: if the repair was created without work orders, an empty array of
 workOrders should be returned (rather than no key or a null value)
 
+## Get appointment booked for a Work Order
 
-## Get Appointments for Work Order
-
-Returns a list of available appointments for a work order 
+Returns the appointment booked for a work order
 
 ```
 GET /v1/work_orders/:workOrderReference/appointments/
+```
+
+### Parameters
+
+- Work order reference (required)
+
+### Response
+
+```json
+{
+  "beginDate": "2017-10-18T08:00:00Z",
+  "endDate": "2017-10-18T12:00:00Z",
+}
+```
+
+## Book an appointment for a Work Order
+
+Creates the appointment in DRS and returns the booked appointment
+
+```
+POST /v1/work_orders/:workOrderReference/appointments/
+```
+
+### Parameters
+
+#### Specified in path
+
+  - workOrderReference - Work order reference (required)
+
+#### Specified in JSON body
+
+  - beginDate - The start time for the desired appointment (required)
+  - endDate - The end time for the desired appointment (required)
+
+### Response
+
+A successful response should book the appointment in DRS
+
+```json
+{
+  "beginDate": "2017-10-18T08:00:00Z",
+  "endDate": "2017-10-18T12:00:00Z",
+}
+```
+
+## Get available appointments for Work Order
+
+Returns a list of available appointments for a work order
+
+```
+GET /v1/work_orders/:workOrderReference/available_appointments/
 ```
 
 ### Parameters
