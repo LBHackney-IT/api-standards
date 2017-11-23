@@ -443,4 +443,32 @@ A successful response should create the Work order in DRS and get the list of av
   ]
 }
 ```
+## Get account and address for housing residents
 
+Returns a list of account and address information
+
+```
+Get /v1/CRMAccounts?parisReference=221234470&postcode=E8 1HH
+```
+
+### Parameters
+- Paris reference (required)
+- Postcode (required)
+
+### Response
+A successful response should get a list of account and address information corresponding to the required parameters.
+
+```json
+{
+  "result": {
+    "value": [
+      {
+        "housing_u_saff_rentacc": "228003480",
+        "aj_x002e_housing_post_code": "E9 6EJ",
+        "aj_x002e_housing_short_address": "5 Burnett Close"
+      }
+    ],
+    "apiStatusCode": 200
+  }
+}
+```
