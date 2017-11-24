@@ -459,16 +459,14 @@ Get /v1/CRMAccounts?parisReference=221234470&postcode=E8 1HH
 A successful response should get a list of account and address information corresponding to the required parameters.
 
 ```json
-{
-  "result": {
-    "value": [
-      {
-        "housing_u_saff_rentacc": "228003480",
-        "aj_x002e_housing_post_code": "E9 6EJ",
-        "aj_x002e_housing_short_address": "5 Burnett Close"
-      }
-    ],
-    "apiStatusCode": 200
+
+ {
+ "results": [
+		  {
+		  "parisReferenceNumber": "228003470",
+		  "postcode": "E9 6ET",
+		  "address": "5 Burnett Close"
+	    }
+	  ]
   }
-}
 ```
