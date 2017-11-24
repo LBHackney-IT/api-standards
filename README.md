@@ -448,7 +448,7 @@ A successful response should create the Work order in DRS and get the list of av
 Returns a list of account and address information
 
 ```
-Get /v1/CRMAccounts?parisReference=221234470&postcode=E8 1HH
+Get /v1/crmaccounts?parisReference=221234470&postcode=E8 1HH
 ```
 
 ### Parameters
