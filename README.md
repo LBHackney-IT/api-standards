@@ -459,14 +459,16 @@ Get /v1/crmaccounts?parisReference=221234470&postcode=E8 1HH
 A successful response should get a list of account and address information corresponding to the required parameters.
 
 ```json
-
- {
- "results": [
-		  {
-		  "parisReferenceNumber": "228003470",
-		  "postcode": "E9 6ET",
-		  "address": "5 Burnett Close"
-	    }
-	  ]
-  }
+{
+  "results": [
+     {
+      "parisReferenceNumber": "228003470",
+      "postcode": "E9 6ET",
+      "address": "5 Burnett Close"
+     },
+     {
+      ...etc...
+     }
+   ]
+ }
 ```
