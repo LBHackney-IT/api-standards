@@ -472,3 +472,77 @@ A successful response should get a list of account and address information corre
    ]
  }
 ```
+
+## Get housing transactions for residents
+
+Returns a list of transactions
+
+```
+Get /v1/ transactions?tagReference=005011/01
+```
+
+### Parameters
+- Tag Reference (required)
+
+### Response
+A successful response should get a list of transactions based on the tag reference provided.
+
+```json
+{
+  "results": [
+    {
+      "tagReference": "000015/01",
+      "propertyReference": "00013513",
+      "transactionSid": null,
+      "houseReference": "000015",
+      "transactionType": "RPY",
+      "postDate": "2017-11-28T00:00:00",
+      "realValue": -16,
+      "transactionID": "49be1c27-e9d4-e711-8109-zzz71b7fe041",
+      "debDesc": "PayPoint/Post Office"
+    },
+    {
+      "tagReference": "000015/01",
+      "propertyReference": "00013513",
+      "transactionSid": null,
+      "houseReference": "000015",
+      "transactionType": "RHB",
+      "postDate": "2017-11-27T00:00:00",
+      "realValue": -119.95,
+      "transactionID": "c4396c29-54d3-e711-8109-zzz71b7fe041",
+      "debDesc": "Housing Benefit"
+    },
+    {
+      ...etc...
+    }
+  ]
+}
+```
+
+## Get payment agreement information for housing residents
+
+Returns a list of payment agreement information
+
+```
+Get /v1/accountpaymentagreement?TagRef=101010/01
+```
+
+### Parameters
+- Tag reference (required)
+
+### Response
+A successful response should get a list of payment agreement information corresponding to the given tag reference.
+```json
+{
+  "results": [
+     {
+      "agreementAmount": "4.18",
+      "agreementFrequency": "1",
+      "agreementId": "4716ed1a-dcd4-e711-8109-e00zzz7fe041"
+     },
+     {
+      ...etc...
+     }
+   ]
+ }
+```
