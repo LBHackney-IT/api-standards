@@ -196,13 +196,17 @@ GET /v1/properties/:propertyReference/
 ### Response
 
 This should mostly mirror the individual results from the List properties by
-ID endpoint.
+ID endpoint, with the addition of the `maintainable` boolean. This is `true`
+when `no_maint` in UH is `false`, and vice versa.
+
+Properties with `maintainable = false` cannot have repairs raised against them.
 
 ```json
 {
   "propertyReference": "00032896",
   "postcode": "AB1 1AA",
-  "address": "Ross Court 2"
+  "address": "Ross Court 2",
+  "maintainable": true
 }
 ```
 
