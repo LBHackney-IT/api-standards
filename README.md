@@ -452,7 +452,7 @@ A successful response should create the Work order in DRS and get the list of av
 Returns a list of account and address information
 
 ```
-Get /v1/crmaccounts?parisReference=221234470&postcode=E8 1HH
+Get /v1/accounts/verifyhousingaccountlogindetail?parisReference=221234470&postcode=E8 1HH
 ```
 
 ### Parameters
@@ -549,4 +549,41 @@ A successful response should get a list of payment agreement information corresp
      }
    ]
  }
+...
+
+## Get account information for housing residents
+
+```
+Get  /v1/accounts/accountdetailsbyparisreference?parisReference=228009977
+```
+
+### Parameters
+- Parisreferencenumber (required)
+
+### Response
+A successful response should get a list of account information corresponding to the given Parisreferencenumber.
+```json
+{
+  "results": [
+     {
+      "propertyReferenceNumber": "00014528",
+      "benefit": "0",
+      "tagReferenceNumber": "015551/01",
+      "accountid": "93d621ae-46c6-e711-8111-70106faa6a11",
+      "currentBalance": "564.35",
+      "rent": "114.04",
+      "housingReferenceNumber": "015551",
+      "directdebit": null,
+      "personNumber": null,
+      "responsible": false,
+      "title": "Mr",
+      "forename": "Andrew",
+      "surname": "Benjamyn"
+     },
+     {
+      ...etc...
+     }
+   ]
+ }
+
 ```
