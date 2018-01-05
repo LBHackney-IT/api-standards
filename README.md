@@ -587,3 +587,27 @@ A successful response should get a list of account information corresponding to 
  }
 
 ```
+## Authenticate users based on Username and Password
+
+Returns the user detail 
+Get/v1/login/authenticatenhoofficers?username=uaccount&password=hackney
+```
+### Parameters
+- Username (required)
+- Password (required)
+
+### Response
+A successful response should get the detail of Authenticated neighbourhood officers corresponding to the required parameters.
+
+```json
+{
+  "result": {
+    "userId": "de98e4b6-15dc-e711-8115-70106faa6a11",
+    "firstName": "Shweta",
+    "surName": "Sandilya",
+    "activeDirectoryUserName": "ssandilya"
+  }
+}
+   
+```
+
