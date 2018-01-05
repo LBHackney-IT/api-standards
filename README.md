@@ -590,7 +590,7 @@ A successful response should get a list of account information corresponding to 
 ## Authenticate users based on Username and Password
 
 Returns the user detail 
-Get/v1/login/authenticatenhoofficers?username=uaccount&password=Hackney12
+Get/v1/login/authenticatenhoofficers?username=uaccount&password=hackney
 ```
 ### Parameters
 - Username (required)
