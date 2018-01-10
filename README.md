@@ -130,10 +130,17 @@ Response:
 
 ```json
 {
-  "errors": {
-    "developerMessage": "....",
-    "userMessage": "...."
-  }
+	"errors": [
+		{
+			"developerMessage": "....",
+			"userMessage": "...."
+		},
+		{
+			"developerMessage": "....",
+			"userMessage": "...."
+		}
+		.....
+	]
 }
 ```
 
