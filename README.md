@@ -615,6 +615,87 @@ A successful response should get the detail of Authenticated neighbourhood offic
     "activeDirectoryUserName": "ssandilya"
   }
 }
-   
-```
 
+...
+## Create a Service Request 
+Creates the service request and returns the Service Request
+
+POST v1/tenancymanagementinteractions/servicerequest
+```
+Specified in JSON body
+### Parameters
+contactId:- contact id of the customer
+title:-title of the Service Request
+description:-description pf the Service Request
+subject:-Subject of the service request
+housing_requestcallback: call back to the customer.
+
+Specified in path
+### Response
+A successful response create interaction
+
+{
+  "id": "f0446d97-04f2-e711-810c-e0071b7fe041",
+  "title": "Tenancy Management",
+  "description": "Enquiry Created By Estate Officer",
+  "contactId": "463adffe-61a5-db11-882c-0014c260c5fa",
+  "parentCaseId": null,
+  "subject": "c1f72d01-28dc-e711-8115-70106faa6a11",
+  "createdDate": null,
+  "enquiryType": null,
+  "ticketNumber": "CAS-00105-P9R5R7",
+  "requestCallback": true,
+  "transferred": false,
+  "createdBy": null,
+  "childRequests": null
+}
+
+## Create a Tenancy Management Interaction
+Creates the service request and Tenancy Management Interaction and returns the Tenancy Management Interaction
+
+POST v1/tenancymanagementinteractions/createTenancyManagementInteraction
+```
+Specified in JSON body
+### Parameters
+contactId:- contact id of the customer
+enquirySubject:-subject of the enquiry
+estateOfficerId:-Estate OfficerId
+subject :-subject of the interaction
+adviceGiven:-advice given to the customer
+estateOffice:-Estate Office name
+source:-source of the enquiry
+NatureofEnquiry :- Nature of Enquiry
+CRMServiceRequest :-ServiceRequest object
+
+Specified in path
+Response
+A successful response create interaction
+
+{
+"interactionId": "40021783-01f2-e711-810c-e0071b7fe041",
+"contactId": "463adffe-61a5-db11-882c-0014c260c5fa",
+"enquirySubject": "100000005",
+"estateOfficerId": "284216e9-d365-e711-80f9-70106faaead1",
+"subject": "c1f72d01-28dc-e711-8115-70106faa6a11",
+"adviceGiven": "test 123",
+"estateOffice": "5",
+"source": "1",
+"natureofEnquiry": "3",
+"serviceRequest": {
+"id": "1da17a83-01f2-e711-8111-70106faa6a31",
+"title": "Tenancy Management",
+"description": "Enquiry Created By Estate Officer",
+"contactId": "463adffe-61a5-db11-882c-0014c260c5fa",
+"parentCaseId": null,
+"subject": "c1f72d01-28dc-e711-8115-70106faa6a11",
+"createdDate": null,
+"enquiryType": null,
+"ticketNumber": "CAS-00104-N5S4C3",
+"requestCallback": false,
+"transferred": false,
+"createdBy": null,
+"childRequests": null
+}
+}
+
+...
