@@ -556,7 +556,7 @@ A successful response should get a list of payment agreement information corresp
      }
    ]
  }
-...
+```
 
 ## Get account information for housing residents
 
@@ -596,7 +596,9 @@ A successful response should get a list of account information corresponding to 
 ```
 ## Authenticate users based on Username and Password
 
-Returns the user detail 
+Returns the user details 
+
+```
 Get/v1/login/authenticatenhoofficers?username=uaccount&password=hackney
 ```
 ### Parameters
@@ -609,11 +611,263 @@ A successful response should get the detail of Authenticated neighbourhood offic
 ```json
 {
   "result": {
-    "userId": "de98e4b6-15dc-e711-8115-701brfaabb11",
+    "estateOfficerLoginId": "d1o1o1o1o1o-15dc-e711-8115-7be3faabb11",
+    "officerId": "d1b1b1b1b1b-15dc-e711-8115-7be3faabb11",
     "firstName": "Shweta",
     "surName": "Sandilya",
-    "activeDirectoryUserName": "ssandilya"
+    "username": "ssandilya",
+    "fullName": "Shweta Sandilya",
+    "isManager": false,
+    "areaManagerId": null,
+    "officerPatchId": "d1c1c1c1c-15dc-e711-8115-7be3faabb11"    
   }
+}
+   
+```
+
+## Get deb items for housing residents
+
+Returns the deb items for a housing resident based on their tag reference. 
+
+```
+Get/v1/accounts/getdebitemsbytagreference?tagreference=1234567/89
+```
+### Parameters
+- Tag reference (required)
+
+### Response
+A successful response should return a list of deb items corresponding to the required parameters.
+
+```json
+{
+  "results": [
+  {
+    "currentBalance": "123456879-15dc-e711-8115-7be3faabb11",
+    "debItemCode": "DGR",
+    "debItemValue": 1.25,
+    "effectiveDate": "2017-01-01 00:00:00",
+    "propertyReference": "00012345",
+    "tagReference": "1234567/89",
+    "termDate": "2018-12-12 00:00:00"
+  },
+  {
+   ...etc...
+  }
+ ]
+}
+   
+```
+
+## Get all accounts and notifications
+
+Returns all lease or rent accounts and their notifications entries based on the account type. 
+
+```
+Get/v1/accounts/getaccountsandnotifications?type=1
+```
+### Parameters
+- Type (required)
+
+### Response
+A successful response should return a list all lease or rent accounts and their notification entries information based on the chosen account type.
+
+```json
+{
+  "results": [
+  {
+    "currentBalance": "-29.99",
+    "telephone": "0987654321",
+    "areNotificationsOn": true,
+    "paymentAgreementId": null,
+    "paymentAgreementEndDate": null   
+  },
+  {
+   ...etc...
+  }
+ ]
+}
+   
+```
+
+
+## Get all estate officers for an area
+
+Returns a list of all estate officers for a given area. 
+
+```
+Get/v1/areapatch/getallofficersperarea?areaId=1
+```
+### Parameters
+- Area ID (required)
+
+### Response
+A successful response should return a list all officers for a given area.
+
+```json
+{
+  "results": [
+  {
+    "propertyAreaPatchId": "1234527c-b205-1231-811c-71234faa1234",
+    "estateOfficerPropertyPatchId": "bo11oo1o44-b005-e811-811c-12126faa1212",
+    "estateOfficerPropertyPatchName": "Test Officer Patch Name",
+    "llpgReferenece": "12345678901",
+    "patchId": "1234545f-b4f7-e711-1234-12345faa6a31",
+    "patchName": "Test Patch",
+    "propetyReference": "010203040",
+    "wardName": "Test Ward Name",
+    "wardId": 0,
+    "areaName": "Test Area Name",
+    "areaId": 0,
+    "managerPropertyPatchId": "b2o2o2o44-b005-e811-811c-12126faa1212",
+    "managerPropertyPatchName": "Test Manager Name",
+    "areaManagerName": "Test Area Manager",
+    "areaManagerId": "a1a1a1a1a-b4f7-e711-1234-12345faa6a31",
+    "isaManager": false,
+    "officerId": "a1c1c1c1c-b4f7-e711-1234-12345faa6a31",
+    "officerName": "Test Officer Name"
+  },
+  {
+   ...etc...
+  }
+ ]
+}
+   
+```
+
+
+## Get citizen index search result
+
+Returns a list of citizens corresponding to a search parameter. 
+
+```
+Get/v1/citizenindexsearch?firstname=test&surname=test&addressline12=flat%201%20test&postcode=E82HH
+```
+### Parameters
+- First name (optional)
+- Surname (optional)
+- Address line 1 (optional)
+- Postcode (optional)
+
+Note: At least one of the optional parameters must be present to execute a search.
+
+### Response
+A successful response should return a list all matching citizens.
+
+```json
+{
+  "results": [
+  {
+    "id": null,
+    "hackneyhomesId": null,
+    "title": "MR",
+    "surname": "Test",
+    "firstName": "Testing",
+    "dateOfBirth": "1962-01-1",
+    "address": null,
+    "addressLine1": "1 THE HACKNEY SERVICE CENTRE HILLMAN STREET HACKNEY LONDON HACKNEY E8 1DY",
+    "addressLine2": ""HILLMAN STREET",
+    "addressLine3": "HACKNEY",
+    "addressCity": "LONDON",
+    "addressCountry": "HACKNEY",
+    "postCode": "E8 1DY",
+    "systemName": "CitizenIndex",
+    "larn": "LARN2TEST260",
+    "uprn": "10012345678",
+    "usn": "101010",
+    "fullAddressSearch": "1THEHACKNEYSERVICECENTREHILLMANSTREETHACKNEYLONDONHACKNEYE81DY",
+    "fullAddressDisplay": "1 THE HACKNEY SERVICE CENTRE HILLMAN STREET HACKNEY LONDON HACKNEY E8 1DY",
+    "crMcontactId": "00000000-0000-0000-0000-000000000000",
+    "fullName": "TESTING TEST"
+  },
+  {
+   ...etc...
+  }
+ ]
+}
+   
+```
+
+## Add a new citizen
+
+Creates a record of a new citizen.
+
+```
+POST /v1/contacts
+```
+### Request
+```json
+{
+  "crMcontactId": null,
+  "title": "MR",
+  "dateOfBirth": "2018-01-01",
+  "lastName": "Testing",
+  "firstName": "Test",
+  "email": "test@test.com",
+  "address1": "MAURICE BISHOP HOUSE E8 1HH",
+  "address2": "17 READING LANE",
+  "address3": "HACKNEY",
+  "city": "LONDON",
+  "postCode": "E8 1HH",
+  "telephone1": "0912345678",
+  "telephone2": null,
+  "telephone3": null,
+  "larn": "LARN2TEST129",
+  "housingId": "1234567",
+  "usn": "121212",
+  "createdByOfficer": "a1c1c1c1c-b4f7-e711-1234-12345faa6a31",
+  "uprn": null,
+  "fullAddressSearch": "MAURICEBISHOPHOUSEE81HH17READINGLANEHACKNEYLONDONE81HH",
+  "fullAddressDisplay": "MAURICE BISHOP HOUSE E8 1HH 17 READING LANE HACKNEY LONDON E8 1HH",
+  "fullName": "Test Testing"
+}
+   
+```
+
+- crMcontactId - used if the citizen already exists in CRM2011 so the new citizen can be created with the same contact ID in Dynamics 365 CRM
+- title - citizen's title
+- dateOfBirth - citizen's date of birth
+- lastName - citizen's last name (mandatory)
+- firstName - citizen's first name (mandatory)
+- email - citizen's email
+- address1 - citizen's address line 1
+- address2 - citizen's address line 2
+- address3 - citizen's address line 3
+- city - citizen's city
+- postCode - citizen's postcode
+- telehpone1 - citizen's primary telephone
+- telehpone2 - citizen's telephone 2
+- telehpone3 - citizen's telephone 3
+- larn - citizen's LARN (as returned from Citizen Index)
+- housingId - citizen's housingId (as returned from Citizen Index)
+- usn - citizen's usn
+- createdByOfficer - the ID of the officer who is currently logged into the system and is creating the new citizen contact (mandatory)
+- uprn - citizen's urpn
+- fullAddressSearch - a concatinated string with no space used with Citizen Index search
+- fullAddressDisplay - the full address of the citizen as to be displayed
+- fullName - citizen's full name
+
+Note: At least one of the optional parameters must be present to execute a search.
+
+### Response
+A successful POST request should have the following response:
+
+```json
+{
+    "contactid": "8c12345a-fd0b-e811-811d-123456a6a11",
+    "firstName": "Test",
+    "lastName": "Testing",
+    "fullName": "Test Testing",
+    "dateOfBirth": "2018-01-01",
+    "email": "test@test.com",
+    "address1": "MAURICE BISHOP HOUSE E8 1HH",
+    "address2": "17 READING LANE",
+    "address3": "HACKNEY",
+    "city": "LONDON",
+    "postCode": "E8 1HH",
+    "telephone1": "0912345678",
+    "larn": "LARN2TEST129",
+    "housingId": "1234567",
+    "usn": "121212"
 }
    
 ```
