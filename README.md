@@ -645,10 +645,10 @@ A successful response should return a list of deb items corresponding to the req
     "currentBalance": "123456879-15dc-e711-8115-7be3faabb11",
     "debItemCode": "DGR",
     "debItemValue": 1.25,
-    "effectiveDate": "2017-01-01 00:00:00",
+    "effectiveDate": "2017-01-01T00:00:00Z",
     "propertyReference": "00012345",
     "tagReference": "1234567/89",
-    "termDate": "2018-12-12 00:00:00"
+    "termDate": "2018-12-12T00:00:00Z"
   },
   {
    ...etc...
@@ -765,7 +765,7 @@ A successful response should return a list all matching citizens.
     "dateOfBirth": "1962-01-1",
     "address": null,
     "addressLine1": "1 THE HACKNEY SERVICE CENTRE HILLMAN STREET HACKNEY LONDON HACKNEY E8 1DY",
-    "addressLine2": ""HILLMAN STREET",
+    "addressLine2": "HILLMAN STREET",
     "addressLine3": "HACKNEY",
     "addressCity": "LONDON",
     "addressCountry": "HACKNEY",
@@ -868,6 +868,181 @@ A successful POST request should have the following response:
     "larn": "LARN2TEST129",
     "housingId": "1234567",
     "usn": "121212"
+}
+   
+```
+
+## Get notifications
+
+Returns notifications information for one account based on the tag reference provided. 
+
+```
+Get /v1/notifications?tagreference=123456%2F78
+```
+
+### Parameters
+- Tag reference (mandatory)
+
+### Response
+A successful response should return the notifications record corresponding to the provided tag reference.
+
+```json
+{
+  "result": {
+    "directDebit": null,
+    "saffRentAccount": "28812345",
+    "accountId": "75e56bod-07fa-e123-8110-12345faaf8c1",
+    "rentAccountNotificationId": "34c456a7-be01-e678-811b-905416faa6a11",
+    "isRentAccountNotification": true,
+    "phone": "",
+    "email": ""
+  }
+}
+   
+```
+
+## Create a notification record
+
+Creates a notification record for an account. 
+
+```
+POST /v1/notifications
+```
+### Request
+```json
+{
+  "tagReference": "123456/78",
+  "email": "test@test.com",
+  "mobilePhone": "",
+  "areNotificationsOn": false,
+  "accountReference": "75e56bod-07fa-e123-8110-12345faaf8c1",
+  "accountType": "1",
+}
+   
+```
+- tagReference - customer's tag reference
+- email - customer's email
+- mobilePhone - customer's mobile phone
+- areNotificationsOn - a boolean representing whether the customer's notifications are on or off
+- accountReference - the account ID of the customer
+- accountType - "1" for Rent account and "2" for Lease account
+
+### Response
+A successful POST request should have the following response:
+
+```json
+{
+    "email": "test@test.com",
+    "telephone": "",
+    "areNotificationsOn": false,
+    "tagReference": "123456/78",
+    "accountType": "1"
+}
+   
+```
+
+## Update a notification record
+
+Updates a notification record for an account. 
+
+```
+PUT /v1/notifications?notificationId=1c1c2c3cd-07fa-e123-8110-12345faaf8c1
+```
+### Request
+```json
+{
+  "email": "test@testing.com",
+  "mobilePhone": "12345678900",
+  "areNotificationsOn": true
+}
+   
+```
+- email - customer's email
+- mobilePhone - customer's mobile phone
+- areNotificationsOn - a boolean representing whether the customer's notifications are on or off
+- notificationId - the ID of the notification record to be updated
+
+### Response
+A successful PUT request should have the following response:
+
+```json
+{
+    "email": "test@testing.com",
+    "telephone": "12345678900",
+    "areNotificationsOn": true,
+    "notificationId": "1c1c2c3cd-07fa-e123-8110-12345faaf8c1"
+}
+   
+```
+
+## Get tenancy management interactions
+
+Returns a list of tenancy management interactions. 
+
+```
+Get /v1/tenancymanagementinteractions?contactid=12345b678-d901-e511-b5a2-12121298417b&personType=contact
+```
+
+### Parameters
+- Contact ID (required)
+- Person Type (required)
+  - contact
+  - officer
+  - manager
+
+### Response
+A successful response should return a list of all tenancy management interactions that are assigned to the provided contact id.
+
+```json
+{
+ "results": [
+    {
+      "incidentId": "1c2c3b4d-ef0f-e811-8114-1c2bfaaf8c1",
+      "ticketNumber": "CAS-31234-W1F7S2",
+      "stateCode": 1,
+      "nccOfficersId": "9912345-da01-e234-8112-71236faaf8c1",
+      "nccEstateOfficer": "Bhavesh Test",
+      "createdon": "2018-02-12T12:22:26Z",
+      "nccOfficerUpdatedById": "12345567-da01-e811-1234-34567faaf8c1",
+      "nccOfficerUpdatedByName": "Bhavesh Test",
+      "natureOfEnquiryId": 3,
+      "natureOfEnquiry": "Estate Managment",
+      "enquirySubjectId": 100000005,
+      "enquirysubject": "Joint tenancy application",
+      "interactionId": "11c2b3d-ef0f-e811-123d-70106faa6a11",
+      "areaManagerId": "1b2b3bc4d-b005-e811-811c-71236faa6a11",
+      "areaManagerName": "Mirela Estate Manager Test",
+      "officerPatchId": "1b2b3b4bcb005-e811-811c-70106faa6a11",
+      "officerPatchName": "Bhavesh Patch",
+      "areaName": "Central Panel",
+      "handledBy": "Estate Officer",
+      "requestCallBack": true,
+      "contactId": "1b2bcb3d4f-ed0f-e123-811d-70106faa6a11",
+      "contactName": "Will Test",
+      "contactPostcode": "E8 2LN",
+      "contactAddressLine1": "47, ABERSHAM ROAD, HACKNEY, LONDON, E8 2LN",
+      "contactAddressLine2": null,
+      "contactAddressLine3": null,
+      "contactAddressCity": null,
+      "contactBirthDate": null,
+      "contactTelephone": "1114567890",
+      "contactEmailAddress": null,
+      "contactLarn": null,
+      "AnnotationList": [
+        {
+          "noteText": "Test logged on  12/02/2018 12:38:21 by Bhavesh Test",
+          "annotationId": "ee1bb2vv-f10f-123vc-8111-e0071b7fe041",
+          "noteCreatedOn": "12/02/2018T12:38Z"
+        },
+	{
+         ...etc...
+        }
+      ]
+    },
+    {
+     ...etc...
+    }
+  ]
 }
    
 ```
