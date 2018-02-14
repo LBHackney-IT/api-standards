@@ -1047,3 +1047,70 @@ A successful response should return a list of all tenancy management interaction
    
 ```
 
+## Get tenancy management interactions by area
+
+Returns a list of tenancy management interactions based on a selected area. 
+
+```
+Get /v1/tenancymanagementinteractions/getareatrayinteractions?officeid=1
+```
+
+### Parameters
+- Office ID (required)
+
+### Response
+A successful response should return a list of all tenancy management interactions that are corresponding to the selected area.
+
+```json
+{
+ "results": [
+    {
+      "incidentId": "1c2c3b4d-ef0f-e811-8114-1c2bfaaf8c1",
+      "ticketNumber": "CAS-31234-W1F7S2",
+      "stateCode": 1,
+      "nccOfficersId": "9912345-da01-e234-8112-71236faaf8c1",
+      "nccEstateOfficer": "Bhavesh Test",
+      "createdon": "2018-02-12T12:22:26Z",
+      "nccOfficerUpdatedById": "12345567-da01-e811-1234-34567faaf8c1",
+      "nccOfficerUpdatedByName": "Bhavesh Test",
+      "natureOfEnquiryId": 3,
+      "natureOfEnquiry": "Estate Managment",
+      "enquirySubjectId": 100000005,
+      "enquirysubject": "Joint tenancy application",
+      "interactionId": "11c2b3d-ef0f-e811-123d-70106faa6a11",
+      "areaManagerId": "1b2b3bc4d-b005-e811-811c-71236faa6a11",
+      "areaManagerName": "Mirela Estate Manager Test",
+      "officerPatchId": "1b2b3b4bcb005-e811-811c-70106faa6a11",
+      "officerPatchName": "Bhavesh Patch",
+      "areaName": "Central Panel",
+      "handledBy": "Estate Officer",
+      "requestCallBack": true,
+      "contactId": "1b2bcb3d4f-ed0f-e123-811d-70106faa6a11",
+      "contactName": "Will Test",
+      "contactPostcode": "E8 2LN",
+      "contactAddressLine1": "47, ABERSHAM ROAD, HACKNEY, LONDON, E8 2LN",
+      "contactAddressLine2": null,
+      "contactAddressLine3": null,
+      "contactAddressCity": null,
+      "contactBirthDate": null,
+      "contactTelephone": "1114567890",
+      "contactEmailAddress": null,
+      "contactLarn": null,
+      "AnnotationList": [
+        {
+          "noteText": "Test logged on  12/02/2018 12:38:21 by Bhavesh Test",
+          "annotationId": "ee1bb2vv-f10f-123vc-8111-e0071b7fe041",
+          "noteCreatedOn": "12/02/2018T12:38Z"
+        },
+	{
+         ...etc...
+        }
+      ]
+    },
+    {
+     ...etc...
+    }
+  ]
+}
+   
+```
